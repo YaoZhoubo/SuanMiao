@@ -23,11 +23,11 @@ void ASuanMiaoCharacter::PossessedBy(AController* NewController)
 {
 	Super::PossessedBy(NewController);
 
-	if(ASuanMiaoPlayerState* PlayerState = GetPlayerState<ASuanMiaoPlayerState>())
+	if(ASuanMiaoPlayerState* SuanMiaoPlayerState = GetPlayerState<ASuanMiaoPlayerState>())
 	{
-		PlayerState->GetAbilitySystemComponent()->InitAbilityActorInfo(PlayerState, this);
-		AbilitySystemComponent = PlayerState->GetAbilitySystemComponent();
-		AttributeSet = PlayerState->GetAttributeSet();
+		SuanMiaoPlayerState->GetAbilitySystemComponent()->InitAbilityActorInfo(SuanMiaoPlayerState, this);
+		AbilitySystemComponent = SuanMiaoPlayerState->GetAbilitySystemComponent();
+		AttributeSet = SuanMiaoPlayerState->GetAttributeSet();
 	}
 }
 
@@ -35,11 +35,10 @@ void ASuanMiaoCharacter::OnRep_PlayerState()
 {
 	Super::OnRep_PlayerState();
 
-
-	if (ASuanMiaoPlayerState* PlayerState = GetPlayerState<ASuanMiaoPlayerState>())
+	if (ASuanMiaoPlayerState* SuanMiaoPlayerState = GetPlayerState<ASuanMiaoPlayerState>())
 	{
-		PlayerState->GetAbilitySystemComponent()->InitAbilityActorInfo(PlayerState, this);
-		AbilitySystemComponent = PlayerState->GetAbilitySystemComponent();
-		AttributeSet = PlayerState->GetAttributeSet();
+		SuanMiaoPlayerState->GetAbilitySystemComponent()->InitAbilityActorInfo(SuanMiaoPlayerState, this);
+		AbilitySystemComponent = SuanMiaoPlayerState->GetAbilitySystemComponent();
+		AttributeSet = SuanMiaoPlayerState->GetAttributeSet();
 	}
 }
